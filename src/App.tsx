@@ -10,6 +10,8 @@ import { useAppDispatch, useAppSelector } from './redux/hooks';
 import { EuiProvider, EuiThemeColorMode, EuiThemeProvider } from '@elastic/eui';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import ThemeSelector from './components/ThemeSelector';
+import CreateMeeting from './pages/CreateMeeting';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -46,17 +48,20 @@ function App() {
     },
   };
   return (
-    <EuiProvider colorMode={theme}>
-      <EuiThemeProvider modify={overrides}>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Dashboard />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="*" element={<Navigate to="/" />}></Route>
-          </Routes>
-        </div>
-      </EuiThemeProvider>
-    </EuiProvider>
+    <ThemeSelector>
+      <EuiProvider colorMode={theme}>
+        <EuiThemeProvider modify={overrides}>
+          <div className="App">
+            <Routes>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/" element={<Dashboard />}></Route>
+              <Route path="*" element={<Navigate to="/" />}></Route>
+              <Route path="/create-meeting" element={<CreateMeeting />}></Route>
+            </Routes>
+          </div>
+        </EuiThemeProvider>
+      </EuiProvider>
+    </ThemeSelector>
   );
 }
 

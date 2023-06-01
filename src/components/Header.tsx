@@ -8,34 +8,12 @@ import { useAppSelector } from '../redux/hooks';
 
 // Components
 import {
-  EuiAvatar,
-  EuiBreadcrumb,
-  EuiButton,
   EuiButtonIcon,
   EuiFlexGroup,
   EuiFlexItem,
   EuiHeader,
-  EuiHeaderBreadcrumbs,
-  EuiHeaderLogo,
-  EuiHeaderSection,
-  EuiHeaderSectionItem,
-  EuiHeaderSectionItemButton,
-  EuiIcon,
-  EuiKeyPadMenu,
-  EuiKeyPadMenuItem,
-  EuiLink,
-  EuiPopover,
-  EuiPopoverFooter,
-  EuiPopoverTitle,
-  EuiSelectable,
-  EuiSelectableMessage,
-  EuiSelectableOption,
-  EuiSelectableProps,
-  EuiSelectableTemplateSitewide,
-  EuiSpacer,
   EuiText,
   EuiTextColor,
-  useGeneratedHtmlId,
 } from '@elastic/eui';
 
 // Redux actions
@@ -147,6 +125,46 @@ function Header() {
             </h2>
           </EuiText>
         </Link>,
+      ],
+    },
+    {
+      items: [
+        <EuiFlexGroup
+          justifyContent="center"
+          alignItems="center"
+          direction="row"
+          style={{ gap: '2vw' }}
+        >
+          <EuiFlexItem grow={false} style={{ flexBasis: 'fit-content' }}>
+            {isDarkTheme ? (
+              <EuiButtonIcon
+                onClick={invertTheme}
+                iconType="sun"
+                size="s"
+                color="warning"
+                aria-label="invert-theme-button"
+              />
+            ) : (
+              <EuiButtonIcon
+                onClick={invertTheme}
+                iconType="moon"
+                size="s"
+                color="ghost"
+                aria-label="invert-theme-button"
+              />
+            )}
+          </EuiFlexItem>
+
+          <EuiFlexItem grow={false} style={{ flexBasis: 'fit-content' }}>
+            <EuiButtonIcon
+              onClick={logout}
+              iconType="lock"
+              display="fill"
+              size="s"
+              aria-label="logout-button"
+            />
+          </EuiFlexItem>
+        </EuiFlexGroup>,
       ],
     },
   ];

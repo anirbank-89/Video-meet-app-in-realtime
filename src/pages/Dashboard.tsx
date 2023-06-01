@@ -32,7 +32,7 @@ const Dashboard = () => {
               icon={<EuiImage size="5rem" alt="icon" src={dashboard1} />}
               title={`Create Meeting`}
               description="Create a new meeting and invite people."
-              onClick={() => navigate('/create')}
+              onClick={() => navigate('/create-meeting')}
               paddingSize="xl"
             />
           </EuiFlexItem>
